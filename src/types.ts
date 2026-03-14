@@ -49,3 +49,40 @@ export interface ApiResponse<T = unknown> {
     /** 响应数据（仅成功时返回） */
     data?: T;
 }
+
+/**
+ * 补丁
+ */
+export enum EventType {
+    META = "meta_event",
+    REQUEST = "request",
+    NOTICE = "notice",
+    MESSAGE = "message",
+    MESSAGE_SENT = "message_sent"
+}
+
+export enum OB11MessageDataType {
+    text = "text",
+    image = "image",
+    music = "music",
+    video = "video",
+    voice = "record",
+    file = "file",
+    at = "at",
+    reply = "reply",
+    json = "json",
+    face = "face",
+    mface = "mface",// 商城表情
+    markdown = "markdown",
+    node = "node",// 合并转发消息节点
+    forward = "forward",// 合并转发消息，用于上报
+    xml = "xml",
+    poke = "poke",
+    dice = "dice",
+    rps = "rps",
+    miniapp = "miniapp",// json类
+    contact = "contact",
+    location = "location",
+    onlinefile = "onlinefile",// 在线文件/文件夹
+    flashtransfer = "flashtransfer"
+}

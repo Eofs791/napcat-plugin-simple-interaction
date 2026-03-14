@@ -1,13 +1,19 @@
 import type { PluginModule } from 'napcat-types/napcat-onebot/network/plugin/types';
-import { EventType } from 'napcat-types/napcat-onebot/event/index';
+import { EventType } from './types';
 import type { OB11PostSendMsg } from 'napcat-types/napcat-onebot';
 import type { NapCatPluginContext } from 'napcat-types/napcat-onebot/network/plugin/types';
 import { pluginState } from './core/state';
 import { handleNotice } from './dispatcher';
 
-
 export const plugin_init: PluginModule['plugin_init'] = async (ctx) => {
-    ctx.logger.log('My Plugin has been initialized!');
+    try {
+        pluginState.init(ctx);
+
+        ctx.logger.info('交互插件初始化中...'); 
+        ctx.logger.info('交互插件初始化完成');
+    } catch (error) {
+        ctx.logger.error('交互插件初始化失败:', error);
+    }
 };
 
 export const plugin_onevent: PluginModule['plugin_onevent'] = async (ctx, event) => {

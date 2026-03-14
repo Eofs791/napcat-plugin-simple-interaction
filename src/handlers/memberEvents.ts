@@ -1,5 +1,5 @@
 import type { OB11GroupDecreaseEvent, OB11GroupIncreaseEvent, OB11PostSendMsg } from "napcat-types";
-import { OB11MessageDataType } from "napcat-types";
+import { OB11MessageDataType } from "../types";
 import type { NapCatPluginContext } from "napcat-types/napcat-onebot/network/plugin/types";
 import { sendGroupMessage } from "../index";
 
@@ -11,7 +11,7 @@ export async function welcomeMember(ctx: NapCatPluginContext, notice: OB11GroupI
         {
             type: OB11MessageDataType.text,
             data: {
-                text: '欢迎'
+                text: '欢迎 '
             }
         },
         {
@@ -23,7 +23,7 @@ export async function welcomeMember(ctx: NapCatPluginContext, notice: OB11GroupI
         {
             type: OB11MessageDataType.text,
             data: {
-                text: '入群喵'
+                text: ' 入群喵'
             }
         },
     ];
