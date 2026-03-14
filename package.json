@@ -1,10 +1,10 @@
 {
-  "name": "napcat-plugin-poke-echo",
-  "plugin": "戳一戳",
-  "version": "0.0.1",
+  "name": "napcat-plugin-simple-interaction",
+  "plugin": "简单社交互动",
+  "version": "0.0.2",
   "type": "module",
   "main": "index.mjs",
-  "description": "简易插件，戳一戳会做出回应喵",
+  "description": "简易插件，检测到进退群和戳一戳会做出回应喵",
   "author": "见崎美咲",
   "license": "MIT",
   "keywords": [

@@ -2,8 +2,8 @@ import type { PluginModule } from 'napcat-types/napcat-onebot/network/plugin/typ
 import { EventType } from 'napcat-types/napcat-onebot/event/index';
 import type { OB11PostSendMsg } from 'napcat-types/napcat-onebot';
 import type { NapCatPluginContext } from 'napcat-types/napcat-onebot/network/plugin/types';
-import { pluginState } from './state';
-import { pokeMessage } from './message';
+import { pluginState } from './core/state';
+import { handleNotice } from './dispatcher';
 
 
 export const plugin_init: PluginModule['plugin_init'] = async (ctx) => {
@@ -11,22 +11,11 @@ export const plugin_init: PluginModule['plugin_init'] = async (ctx) => {
 };
 
 export const plugin_onevent: PluginModule['plugin_onevent'] = async (ctx, event) => {
-    if (event.post_type === EventType.NOTICE) {
-        const notice = event as any;
-
-        if (notice.sub_type === 'poke' && notice.self_id === notice.target_id) {
-            if ('group_id' in event) {
-                sendGroupMessage(ctx, notice.group_id, getPokeReply());
-            } else {
-                sendPrivateMessage(ctx, notice.user_id, getPokeReply());
-            }
-        }
-    }
+    
+    if (event.post_type !== EventType.NOTICE) return;
+    
+    await handleNotice(ctx, event);
 };
-
-function getPokeReply() {
-    return pokeMessage[Math.floor(Math.random() * pokeMessage.length)];
-}
 
 /**
  * 发送群消息

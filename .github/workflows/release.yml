@@ -76,7 +76,7 @@ jobs:
 
       - name: Verify zip contents
         run: |
-          PLUGIN_NAME="napcat-plugin-template"
+          PLUGIN_NAME="napcat-plugin-poke-echo"
           unzip -l ${PLUGIN_NAME}.zip
 
       - name: Collect git log
