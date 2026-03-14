@@ -1,9 +1,9 @@
-import { NapCatPluginContext } from "napcat-types/napcat-onebot/network/plugin/types";
-import { OB11FriendPokeEvent, OB11GroupPokeEvent } from "napcat-types";
+import type { NapCatPluginContext } from "napcat-types/napcat-onebot/network/plugin/types";
+import type { OB11FriendPokeEvent, OB11GroupPokeEvent } from "napcat-types";
 import { sendGroupMessage, sendPrivateMessage } from "../index";
 import { pokeMessage } from '../message';
 
-export type GeneralPokeEvent = OB11GroupPokeEvent | OB11FriendPokeEvent;
+type GeneralPokeEvent = OB11GroupPokeEvent | OB11FriendPokeEvent;
 
 export async function echoPoke(ctx: NapCatPluginContext, poke: GeneralPokeEvent): Promise<void> {
     if (poke.self_id !== poke.target_id) return;

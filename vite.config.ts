@@ -5,6 +5,11 @@ import fs from 'fs';
 import { builtinModules } from 'module';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+const nodeModules = [
+    ...builtinModules,
+    ...builtinModules.map((m) => `node:${m}`),
+].flat();
+const external: string[] = [];
 
 // 自动生成的精简 package.json 插件
 function generatePkgPlugin() {
@@ -48,11 +53,10 @@ export default defineConfig({
             fileName: () => 'index.mjs',
         },
         rollupOptions: {
-            // 排除 Node.js 内置模块，防止被打包进去
-            external: [
-                ...builtinModules,
-                ...builtinModules.map((m) => `node:${m}`)
-            ],
+            external: [...nodeModules, ...external],
+            output: {
+                inlineDynamicImports: true,
+            },
         },
         outDir: 'dist',
         emptyOutDir: true, // 每次构建前清空 dist

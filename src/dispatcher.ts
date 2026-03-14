@@ -1,5 +1,5 @@
-import { OB11EmitEventContent } from "napcat-types/napcat-onebot/network";
-import { NapCatPluginContext } from "napcat-types/napcat-onebot/network/plugin/types";
+import type { OB11EmitEventContent } from "napcat-types/napcat-onebot/network";
+import type { NapCatPluginContext } from "napcat-types/napcat-onebot/network/plugin/types";
 import { pluginState } from "./core/state";
 import { echoPoke } from "././handlers/echoPoke"
 import { farewellMember, welcomeMember } from "./handlers/memberEvents";

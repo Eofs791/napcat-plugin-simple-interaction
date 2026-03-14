@@ -1,7 +1,7 @@
-import { NapCatPluginContext } from "napcat-types/napcat-onebot/network/plugin/types";
-import { OB11Message } from "napcat-types";
+import type { NapCatPluginContext } from "napcat-types/napcat-onebot/network/plugin/types";
+import type { OB11Message } from "napcat-types";
 import { pluginState } from "src/core/state";
-import { sendGroupMessage } from "src";
+import { sendGroupMessage } from "../index";
 
 let lastMessage = '';
 let repeatCount = 1;

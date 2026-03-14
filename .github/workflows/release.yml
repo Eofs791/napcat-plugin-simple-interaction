@@ -238,6 +238,6 @@ jobs:
           body_path: CHANGELOG.md
           draft: false
           files: |
-            napcat-plugin-template.zip
+            napcat-plugin-simple-interaction.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

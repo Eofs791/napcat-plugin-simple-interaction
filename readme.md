@@ -1,5 +1,5 @@
-## napcat-plugin-pokereply
-简易戳一戳回应插件，暂时自用，目前语料库出自[nonebot-plugin-eventmonitor](https://github.com/Reversedeer/nonebot_plugin_eventmonitor)
+## napcat-plugin-simple-interaction
+简易插件，检测到进退群和戳一戳会做出回应，暂时自用，语料库出自[nonebot-plugin-eventmonitor](https://github.com/Reversedeer/nonebot_plugin_eventmonitor)
 
 ### TODO
 - [ ] 语料库更新与自定义

@@ -1,5 +1,6 @@
-import { OB11GroupDecreaseEvent, OB11GroupIncreaseEvent, OB11MessageDataType, OB11PostSendMsg } from "napcat-types";
-import { NapCatPluginContext } from "napcat-types/napcat-onebot/network/plugin/types";
+import type { OB11GroupDecreaseEvent, OB11GroupIncreaseEvent, OB11PostSendMsg } from "napcat-types";
+import { OB11MessageDataType } from "napcat-types";
+import type { NapCatPluginContext } from "napcat-types/napcat-onebot/network/plugin/types";
 import { sendGroupMessage } from "../index";
 
 export async function welcomeMember(ctx: NapCatPluginContext, notice: OB11GroupIncreaseEvent): Promise<void> {
